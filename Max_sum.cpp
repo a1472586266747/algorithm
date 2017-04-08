@@ -7,13 +7,14 @@ int max_sum(int *A,int p,int q){
   int L,R,C=0;
   if(p==q)
     return A[p];
+
   L=max_sum(A,p,(p+q)/2);
   R=max_sum(A,(p+q)/2+1,q);
   C=A[(p+q)/2];
 
   int temp=C;
 
-  for(int i=(p+q)/2+1;i<=q;i++){
+  for(int i=(p+q)/2+1;i<q;i++){
     temp+=A[i];
     if(C<temp)
       C=temp;
