@@ -4,8 +4,8 @@ using namespace std;
 
 int max_sum(int *A,int p,int q){
   int m=0;
-  int L,R,C=0;
-  if(p==q)
+  int L=0,R=0,C=0;
+  if(p>=q)
     return A[p];
 
   L=max_sum(A,p,(p+q)/2);
@@ -14,7 +14,7 @@ int max_sum(int *A,int p,int q){
 
   int temp=C;
 
-  for(int i=(p+q)/2+1;i<q;i++){
+  for(int i=(p+q)/2+1;i<=q;i++){
     temp+=A[i];
     if(C<temp)
       C=temp;
@@ -38,7 +38,7 @@ int main(){
     cin>>a[i];
 
 
-  cout<<max_sum(a,0,n)<<endl;
+  cout<<max_sum(a,0,n-1)<<endl;
 
 
 
