@@ -11,13 +11,20 @@ int max_sum(int *A,int p,int q){
   L=max_sum(A,p,(p+q)/2);
   R=max_sum(A,(p+q)/2+1,q);
   C=A[(p+q)/2];
+
+  int temp=C;
+
   for(int i=(p+q)/2+1;i<=q;i++){
-    if(C<A[i]+C)
-      C=A[i]+C;
+    temp+=A[i];
+    if(C<temp)
+      C=temp;
   }
+  temp=C;
+
   for(int i=(p+q)/2-1;i>=p;i--){
-    if(C<A[i]+C)
-      C=A[i]+C;
+    temp+=A[i];
+    if(C<temp)
+      C=temp;
   }
   return max(max(L,R),C);
 }
@@ -32,8 +39,6 @@ int main(){
 
 
   cout<<max_sum(a,0,n)<<endl;
-
-  cout<<max(max(5,6),9);
 
 
 
