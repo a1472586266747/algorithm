@@ -14,24 +14,19 @@ bool compare(int* A,int* B){
 }
 
 void clearA(int *a){
-	for(int i=0;i<sizeof(a)/4;i++){
+	for(int i=0;i<26;i++){
 		a[i]=0;
 	}
-}
-void upper(string &str){
-		for(int i=0;i<str.length();i++){
-			str[i]=toupper(str[i]);
-		}
+	
 }
 
 int main(){
 	int a[26] = {0}, b[26] = {0};
 	string str1,str2;
 	while (cin >> str1 >> str2){
-		upper(str1);
-		upper(str2);
 		clearA(a);
 		clearA(b);
+
 		if (str1.length() != str2.length()){
 			cout << "NO\n";
 			continue;
@@ -41,6 +36,7 @@ int main(){
 			a[str1[i] - 65]++;
 			b[str2[i] - 65]++;
 		}
+
 		sort(a,a+26);
 		sort(b,b+26);
 
