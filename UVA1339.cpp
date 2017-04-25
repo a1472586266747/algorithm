@@ -18,22 +18,28 @@ void clearA(int *a){
 		a[i]=0;
 	}
 }
+void upper(string &str){
+		for(int i=0;i<str.length();i++){
+			str[i]=toupper(str[i]);
+		}
+}
 
 int main(){
 	int a[26] = {0}, b[26] = {0};
-	string str[2];
-
-	while (cin >> str[0] >> str[1]){
+	string str1,str2;
+	while (cin >> str1 >> str2){
+		upper(str1);
+		upper(str2);
 		clearA(a);
 		clearA(b);
-		if (str[0].length() != str[1].length()){
+		if (str1.length() != str2.length()){
 			cout << "NO\n";
 			continue;
 		}
 
-		for (int i = 0; i < str[0].length(); i++){
-			a[str[0][i] - 65]++;
-			b[str[1][i] - 65]++;
+		for (int i = 0; i < str1.length(); i++){
+			a[str1[i] - 65]++;
+			b[str2[i] - 65]++;
 		}
 		sort(a,a+26);
 		sort(b,b+26);
