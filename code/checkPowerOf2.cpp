@@ -6,7 +6,7 @@ public:
      */
     bool checkPowerOf2(int n) {
         // write your code here
-        if(n==0||-2147483648){
+        if(n==0||n==-2147483648){
           return 0;
         }
         if(!(n&(n-1)))
