@@ -26,12 +26,28 @@ void dfs(int i,int j) {
 		if (!f[i + 1][j - 1])
 			dfs(i + 1, j - 1);
 	}
+	if (maze[i - 1][j] == 'W') {
+		if (!f[i - 1][j])
+			dfs(i - 1, j);
+	}
+	if (maze[i][j - 1] == 'W') {
+		if (!f[i][j - 1])
+			dfs(i, j - 1);
+	}
+	if (maze[i - 1][j + 1] == 'W') {
+		if (!f[i - 1][j + 1])
+			dfs(i - 1, j + 1);
+	}
+	if (maze[i - 1][j - 1] == 'W') {
+		if (!f[i - 1][j - 1])
+			dfs(i - 1, j - 1);
+	}
 	return;
 }
 
 int main() {
 	int count = 0;
-
+	cin >> N >> M;
 		count = 0;
 		for (int i = 0; i < Max; i++) {
 			for (int j = 0; j < Max; j++) {
