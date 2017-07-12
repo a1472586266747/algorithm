@@ -31,11 +31,10 @@ void dfs(int i,int j) {
 
 int main() {
 	int count = 0;
-	while (cin >> N >> M) {
 
 		count = 0;
-		for (int i = 0; i <= Max; i++) {
-			for (int j = 0; j <= Max; j++) {
+		for (int i = 0; i < Max; i++) {
+			for (int j = 0; j < Max; j++) {
 				maze[i][j] = '.';
 				f[i][j] = 0;
 			}
@@ -62,6 +61,6 @@ int main() {
 		}
 
 		cout << count;
-	}
+
 	return 0;
 }
