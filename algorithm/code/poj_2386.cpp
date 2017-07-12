@@ -7,6 +7,7 @@ using namespace std;
 int N, M;
 char maze[Max][Max];
 bool f[Max][Max];
+
 void dfs(int i,int j) {
 	f[i][j] = 1;
 	if (maze[i + 1][j]=='W') {
@@ -29,34 +30,38 @@ void dfs(int i,int j) {
 }
 
 int main() {
-	for (int i = 0; i <= Max; i++) {
-		for (int j = 0; j <= Max; j++) {
-			maze[i][j] = '.';
-			f[i][j] = 0;
-		}
-	}
-
-	cin >> N >> M;
-	for (int i = 1; i <= N; i++) {
-		for (int j = 1; j <= M; j++) {
-			cin >> maze[i][j];
-		}
-	}
-
 	int count = 0;
+	while (cin >> N >> M) {
 
-
-
-	for (int i = 1; i <= N; i++) {
-		for (int j = 1; j <= M; j++) {
-			if (f[i][j] == 0 && maze[i][j] == 'W') {
-				dfs(i,j);
-				count++;
+		count = 0;
+		for (int i = 0; i <= Max; i++) {
+			for (int j = 0; j <= Max; j++) {
+				maze[i][j] = '.';
+				f[i][j] = 0;
 			}
 		}
+
+
+		for (int i = 1; i <= N; i++) {
+			for (int j = 1; j <= M; j++) {
+				cin >> maze[i][j];
+			}
+		}
+
+
+
+
+
+		for (int i = 1; i <= N; i++) {
+			for (int j = 1; j <= M; j++) {
+				if (f[i][j] == 0 && maze[i][j] == 'W') {
+					dfs(i, j);
+					count++;
+				}
+			}
+		}
+
+		cout << count;
 	}
-
-	cout << count;
-
 	return 0;
 }
