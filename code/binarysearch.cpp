@@ -24,7 +24,7 @@ int binarySearch(vector<int> &A, int target) {
 		}
 	}
 	if (A[start] == target) return start;
-	else return end;
+	else if (A[end] == target) return end;
 
 	return -1;
 }
